@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import styles from '../styles/styles.module.css'; 
+
+const LoginForm: React.FC = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        try {
+            const response = await axios.post('/api/login', { email, password });
+            if (response.data.success) {
+                navigate('/game');
+            } else {
+                alert('로그인 실패');
+            }
+        } catch (error) {
+            alert('로그인 중 오류 발생');
+        }
+    };
+
+    return (
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit} className={styles.loginForm}>
+                <h1 id="login_title" className={styles.login_title}>로그인</h1>
+                <div className={styles.input}>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="이메일"
+                        className={styles.userId}
+                    />
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="비밀번호"
+                        className={styles.password}
+                    />
+                </div>
+                <button type="submit" id={styles.loginBut} className={styles.loginBut}>로그인</button>
+                <div className={styles.link}>
+                    <a href="/signup">계정 생성</a>
+                </div>
+            </form>
+        </div>
+    );
+};
+
+export default LoginForm;
+
