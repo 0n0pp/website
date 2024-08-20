@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import styles from '../styles/styles.module.css';
+import '../styles/signup.css'; // CSS 파일 임포트
 
-const SignupForm: React.FC = () => {
+const SignUpForm: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -23,28 +23,28 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.signupForm}>
-        <h1 className={styles.signup_title}>회원가입</h1>
-        <div className={styles.signup_input}>
+    <div className="container">
+      <form onSubmit={handleSubmit} className="signupForm">
+        <h1 className="signup_title">회원가입</h1>
+        <div className="signup_input">
           <input
-            type="text" // 아이디 입력란으로 변경
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="아이디"
-            className={styles.userId}
+            className="userId"
           />
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="비밀번호"
-            className={styles.password}
+            className="password"
           />
         </div>
-        {error && <p className={styles.error}>{error}</p>}
-        <button type="submit" className={styles.signup_button}>회원가입</button>
-        <div className={styles.link}>
+        {error && <p className="error">{error}</p>}
+        <button type="submit" className="signup_button">회원가입</button>
+        <div className="link">
           <a href="/login">로그인</a>
         </div>
       </form>
@@ -52,4 +52,4 @@ const SignupForm: React.FC = () => {
   );
 };
 
-export default SignupForm;
+export default SignUpForm;

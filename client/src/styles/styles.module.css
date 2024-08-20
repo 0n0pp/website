@@ -1,134 +1,83 @@
+/* styles.module.css */
 .container {
+ /*background: url('/images/mmm.jpg') no-repeat center center fixed;
+  background-size: cover;*/
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: center;
+  height: 100vh;
+  padding-left: 50px; /* 왼쪽 여백 추가 */
+}
+
+.loginForm, .signupForm {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px; /* 패딩을 증가시켜 박스를 더 크게 만듦 */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 400px; /* 너비를 증가 */
+  height: 600px; /* 높이를 증가 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f5f5f5;
 }
 
-.loginForm {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-}
-
-.login_title {
-  font-size: 24px;
+.login_title, .signup_title {
   margin-bottom: 20px;
+  font-size: 2em; /* 타이틀 폰트 크기 증가 */
 }
 
-.input {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.input, .signup_input {
+  width: 100%;
 }
 
 .userId, .password {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
-.loginBut, .signupBut {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007BFF;
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.loginBut:hover, .signupBut:hover {
-  background-color: #0056b3;
-}
-
-.link {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.link a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-.link a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f5f5f5;
-}
-
-.signupForm {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-}
-
-.signup_title {
-  font-size: 24px;
+  width: 100%;
   margin-bottom: 20px;
-}
-
-.signup_input {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.signup_input input {
-  padding: 10px;
+  padding: 15px; /* 패딩을 증가시켜 입력 필드를 더 크게 만듦 */
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1.2em; /* 입력 필드 폰트 크기 증가 */
 }
 
-.signup_button {
-  padding: 12px 20px;
+.loginBut, .signup_button {
+  width: 100%;
+  padding: 15px; /* 패딩을 증가시켜 버튼을 더 크게 만듦 */
   border: none;
-  border-radius: 4px;
-  background-color: #007BFF;
-  color: #fff;
-  font-size: 16px;
+  border-radius: 5px;
+  background-color: #5cb85c;
+  color: white;
   cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.signup_button:hover {
-  background-color: #0056b3;
-}
-
-.link {
-  margin-top: 10px;
   text-align: center;
-}
-
-.link a {
-  color: #007BFF;
+  margin-bottom: 20px;
   text-decoration: none;
+  display: block;
+  font-size: 1.2em; /* 버튼 폰트 크기 증가 */
 }
 
-.link a:hover {
-  text-decoration: underline;
+.signupBut, .loginBut {
+  background-color: #0275d8;
 }
+
+.loginBut:hover, .signup_button:hover, .signupBut:hover {
+  opacity: 0.8;
+}
+
 .error {
   color: red;
+  margin-bottom: 20px;
+  font-size: 1.2em; /* 에러 메시지 폰트 크기 증가 */
+}
+
+.link a {
+  color: #0275d8;
+  text-decoration: none;
+  display: block;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
+  font-size: 1.2em; /* 링크 폰트 크기 증가 */
+}
+
+.link a:hover {
+  text-decoration: underline;
 }

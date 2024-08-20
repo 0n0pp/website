@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack'); // 웹팩 플러그인 추가
 
 module.exports = {
   entry: './src/index.tsx',
@@ -13,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
@@ -23,8 +24,20 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true,
     port: 9000,
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process': JSON.stringify({
+        env: {
+          NODE_ENV: 'development'
+        }
+      })
+    }),
+  ],
 };
